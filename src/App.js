@@ -1,10 +1,10 @@
-import Welcome from "./components/Welcome"
+import "./styles/app.scss"
+import Home from "./pages/Home"
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Hello React</h1>
-      <Welcome />
+      <Home />
     </div>
   )
 }
