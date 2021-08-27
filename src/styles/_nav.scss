@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    & .login {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.25rem;
+    }
+    & .logimg {
+        margin-right: 1.3rem;
+    }
+    & img {
+        width: 200px;
+    }
+}

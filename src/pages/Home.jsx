@@ -5,7 +5,41 @@ import chat from '../img/icon-chat.png'
 import money from '../img/icon-money.png'
 import security from '../img/icon-security.png'
 
+import { useEffect, useState } from "react"
+
 const Home = () => {
+
+    {/*const useFetch = (url, request) => {
+
+        console.log(request);
+      
+        useEffect(() => {
+         
+          const fetchData = async () => {
+           
+            const response = await fetch(url,{
+      
+              method: request.method,
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(request.body)
+      
+            });
+            const res = await response.json();
+      
+            console.log(res);
+            
+          };
+      
+          fetchData();
+        }, [url,request]);
+      
+      }
+
+      console.log(useFetch('http://localhost:3001/api/v1/user/signup', GET));
+    */}
 
     return (
         <div>
