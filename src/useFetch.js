@@ -1,19 +1,25 @@
 import { useEffect, useState } from 'react'
 
-const useFetch = (url) => {
-  const [data, setData] = useState(null)
+const useFetch = data => {
+  const url = 'http://localhost:3001/api/v1/user/login'
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(url)
-      const data = await res.json()
-
-      setData(data.data)
+  fetch(url, {
+    method: 'POST',
+    body: data,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
     }
-    fetchData()
-  }, [])
-
-  return data
+  }).then(async res => {
+    // window.location = '/profil'
+    try {
+      console.log(res)
+      const content = await res.json()
+      console.log(content)
+    } catch (err) {
+      console.log('Erreur :', err)
+    }
+  })
 }
 
 export default useFetch
