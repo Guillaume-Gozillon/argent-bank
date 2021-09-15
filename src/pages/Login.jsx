@@ -17,41 +17,6 @@ const Login = () => {
     })
 
     useFetch(data)
-
-    //fetch(url, {
-    //  method: 'POST',
-    //  body: data,
-    //  headers: {
-    //    Accept: 'application/json',
-    //    'Content-Type': 'application/json'
-    //  }
-    //}).then(async res => {
-    //  // window.location = '/profil'
-    //  try {
-    //    console.log(res)
-    //    const content = await res.json()
-    //    console.log(content)
-    //  } catch (err) {
-    //    console.log('Erreur :', err)
-    //  }
-    //})
-  }
-  {
-    /* 
-    axios({
-      method: 'post',
-      url: 'http://localhost:3001/api/v1/user/login',
-      // withCredentials: true,
-      data: {
-        email,
-        password
-      }
-    }).then(res => {
-      // window.location = '/profil'
-      console.log(res)
-      console.log(res.data.body.token)
-    })
-*/
   }
 
   return (
@@ -86,13 +51,24 @@ const Login = () => {
 
 export default Login
 
-// axios({
-//   method: 'post',
-//   url: 'http://localhost:3001/api/v1/user/signup',
-//   data: {
-//     email,
-//     password
-//   }
-// }).then(res => {
-//   console.log(res)
-// })
+{
+  /* 
+  fetch(url, {
+    method: 'POST',
+    body: data,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }).then(async res => {
+    // window.location = '/profil'
+    try {
+      console.log(res)
+      const content = await res.json()
+      console.log(content)
+    } catch (err) {
+      console.log('Erreur :', err)
+    }
+  })
+*/
+}
