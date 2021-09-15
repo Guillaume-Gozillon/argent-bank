@@ -4,6 +4,6 @@ import logoutReducer from './logoutReducer'
 
 export const rootReducer = combineReducers({
   loginReducer,
-  logoutReducer,
+  logoutReducer
   //editProfilReducer
 })
