@@ -20,7 +20,8 @@ const Login = () => {
       password
     })
 
-    useFetch(data)
+    const test = useFetch(data)
+    console.log('dataaa', test);
   }
 
   return (
@@ -47,7 +48,7 @@ const Login = () => {
           value={password}
         />
         <input type='submit' value='Se connecter' />
-        <button onClick={() => dispatch({ type: 'USER_LOGIN', payload: 'test' })}>
+        <button onClick={() => dispatch({ type: 'USER_LOGIN'})}>
           REDUX CONNECT
         </button>
       </form>
