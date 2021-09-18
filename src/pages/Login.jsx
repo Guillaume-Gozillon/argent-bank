@@ -3,11 +3,15 @@ import Footer from '../components/Footer'
 
 import { useState } from 'react'
 import useFetch from '../useFetch'
+import { useDispatch } from 'react-redux'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const dispatch = useDispatch()
+
+  console.log(dispatch)
   const handleLogin = e => {
     e.preventDefault()
 
@@ -43,6 +47,9 @@ const Login = () => {
           value={password}
         />
         <input type='submit' value='Se connecter' />
+        <button onClick={() => dispatch({ type: 'USER_LOGIN', payload: 'test' })}>
+          REDUX CONNECT
+        </button>
       </form>
       <Footer />
     </div>

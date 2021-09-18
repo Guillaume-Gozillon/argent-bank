@@ -1,5 +1,3 @@
-// import { useEffect, useState } from 'react'
-
 const useFetch = data => {
   const url = 'http://localhost:3001/api/v1/user/login'
 
@@ -8,15 +6,21 @@ const useFetch = data => {
     body: data,
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      token: localStorage.getItem('token')
     }
   }).then(async res => {
     // window.location = '/profil'
     try {
       const content = await res.json()
-      //const token = content.body.token
+      console.log(res);
       console.log(content)
-      //console.log(token)
+
+      if (content.status !== 400) {
+        const token = content.body.token
+        console.log(token)
+        localStorage.setItem('token', token)
+      }
     } catch (err) {
       console.log('Erreur :', err)
     }

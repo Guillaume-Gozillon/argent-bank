@@ -1,8 +1,9 @@
-const initialState = { isAuth: null }
-
-export default function logoutReducer(state = initialState, action) {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
+//onst initialState = { isAuth: null }
+//
+//xport default function logoutReducer(state = initialState, action) {
+// switch (action.type) {
+//   default:
+//     return state
+// }
+//
+//
