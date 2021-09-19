@@ -5,7 +5,7 @@ const Profil = () => {
   return (
     <div>
       <Nav />
-      <p>HELLO PROFIL</p>
+      <p>Bonjour Guillaume</p>
       <Footer />
     </div>
   )

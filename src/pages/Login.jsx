@@ -1,27 +1,41 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
+import axios from 'axios'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { userLogin } from '../a - actions/userAction'
+import { loginApi } from '../a - actions/loginAction'
+import { Redirect } from 'react-router'
 
 const Login = () => {
+  const dispatch = useDispatch()
+  const BASE_URL = 'http://localhost:3001/api/v1/user'
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isAuth, setIsAuth] = useState(false)
-  
-  const BASE_URL = 'http://localhost:3001/api/v1/user'
-  const data = JSON.stringify({ email, password })
-
-  const dispatch = useDispatch()
 
   const handleEmail = e => setEmail(e.target.value)
   const handlePassword = e => setPassword(e.target.value)
 
-  const submitLogin = e => {
+  const data = { email, password, token: '' }
+
+  const submitLogin = async e => {
     e.preventDefault()
-    dispatch(userLogin(data, BASE_URL))
+
+    if (email !== '') {
+      axios
+        .post(`${BASE_URL}/login`, data)
+        .then(res => {
+          const token = res.data.body.token
+
+          dispatch(loginApi(email, password, token))
+          if (res.status === 200) setIsAuth(true)
+        })
+        .catch(err => console.log('Nouvelle erreur', err))
+    }
   }
+
+  if (isAuth) return <Redirect to='/profil' />
 
   return (
     <div>
@@ -46,10 +60,7 @@ const Login = () => {
           onChange={handlePassword}
           value={password}
         />
-        <button onClick={submitLogin} type='submit'>
-          Se connecter
-        </button>
-        <button onClick={submitLogin}>REDUX CONNECT</button>
+        <button onClick={submitLogin}>Se connecter</button>
       </form>
       <Footer />
     </div>
