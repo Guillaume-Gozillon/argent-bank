@@ -1,12 +1,14 @@
 import { USER_LOGIN } from '../a - actions/userAction'
-const initialState = { isAuth: null }
+const initialState = { email: null, password: null, token: null }
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case USER_LOGIN: {
       return {
         ...state,
-        isAuth: action.payload
+        email: action.payload.email,
+        password: action.payload.password,
+        token: action.payload.token
       }
     }
     default:

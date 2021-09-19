@@ -6,21 +6,19 @@ const useFetch = data => {
     body: data,
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
       //token: localStorage.getItem('token')
     }
   }).then(async res => {
     // window.location = '/profil'
     try {
       const content = await res.json()
-      console.log(res);
       console.log(content)
 
       if (content.status !== 400) {
         const token = content.body.token
         console.log(token)
-        const test = localStorage.getItem('token')
-        return test
+        // const test = localStorage.setItem('token', token)
       }
     } catch (err) {
       console.log('Erreur :', err)
