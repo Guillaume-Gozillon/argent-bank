@@ -7,7 +7,6 @@ export const userLogin = (data, BASE_URL) => async dispatch => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
-      //token: localStorage.getItem('token')
     }
   }).then(async res => {
     try {
@@ -16,6 +15,8 @@ export const userLogin = (data, BASE_URL) => async dispatch => {
       if (content.status !== 400) {
         const token = content.body.token
         const dataFetched = JSON.parse(data)
+
+        localStorage.setItem('token', token)
 
         dispatch({
           type: 'USER_LOGIN',
@@ -27,7 +28,7 @@ export const userLogin = (data, BASE_URL) => async dispatch => {
         })
       }
     } catch (err) {
-      console.log('Erreur :', err)
+      console.log('Erreur:', err)
     }
   })
 }
