@@ -1,6 +1,8 @@
 export const USER_LOGIN = 'USER_LOGIN'
+import { useHistory } from 'react-router-dom'
+const history = useHistory()
 
-export const userLogin = (data, BASE_URL) => async dispatch => {
+export const userLogin = (data, BASE_URL) => dispatch => {
   fetch(`${BASE_URL}/login`, {
     method: 'POST',
     body: data,
@@ -11,8 +13,9 @@ export const userLogin = (data, BASE_URL) => async dispatch => {
   }).then(async res => {
     try {
       const content = await res.json()
+      console.log(content);
 
-      if (content.status !== 400) {
+      if (res.ok) {
         const token = content.body.token
         const dataFetched = JSON.parse(data)
 

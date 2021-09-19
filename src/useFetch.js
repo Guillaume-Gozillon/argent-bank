@@ -15,7 +15,7 @@ const useFetch = data => {
       const content = await res.json()
       console.log(content)
 
-      if (content.status !== 400) {
+      if (res.ok) {
         const token = content.body.token
         console.log(token)
         // const test = localStorage.setItem('token', token)

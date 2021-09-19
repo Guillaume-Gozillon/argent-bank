@@ -8,6 +8,8 @@ import { userLogin } from '../a - actions/userAction'
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isAuth, setIsAuth] = useState(false)
+  
   const BASE_URL = 'http://localhost:3001/api/v1/user'
   const data = JSON.stringify({ email, password })
 
