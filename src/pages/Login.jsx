@@ -2,6 +2,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { BASE_URL } from '../utils'
 
 import axios from 'axios'
 import { useState } from 'react'
@@ -11,7 +12,6 @@ import { Redirect } from 'react-router'
 
 const Login = () => {
   const dispatch = useDispatch()
-  const BASE_URL = 'http://localhost:3001/api/v1/user'
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isAuth, setIsAuth] = useState(false)
@@ -40,14 +40,16 @@ const Login = () => {
   if (isAuth) return <Redirect to='/profil' />
 
   return (
-    <div className='login'>
+    <>
       <Nav />
       <main className='form'>
         <div className='form-container'>
           <FontAwesomeIcon className='logimg' icon={faUserCircle} />
           <h1>Sign In</h1>
           <form id='sign-up-form'>
-            <label htmlFor='email'>Username</label>
+            <label htmlFor='email' className='label-bold'>
+              Username
+            </label>
             <br />
             <input
               type='text'
@@ -57,7 +59,9 @@ const Login = () => {
               value={email}
             />
             <br />
-            <label htmlFor='password'>Password</label>
+            <label htmlFor='password' className='label-bold'>
+              Password
+            </label>
             <br />
             <input
               type='password'
@@ -67,14 +71,19 @@ const Login = () => {
               value={password}
             />
             <br />
-            <input type="checkbox" name="Remember me" id="" />
+            <input type='checkbox' id='remember-me' />
+            <label htmlFor='remember-me' id='check-label'>
+              Remember me
+            </label>
             <br />
-            <button onClick={submitLogin}>Sign In</button>
+            <button onClick={submitLogin} className='sign-button'>
+              Sign In
+            </button>
           </form>
         </div>
       </main>
       <Footer />
-    </div>
+    </>
   )
 }
 

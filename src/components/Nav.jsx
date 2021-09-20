@@ -5,9 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 const Nav = () => {
-  // REMOVE FONTAWESOM
-  // FINIR LA VERSION MOBILE
-
   return (
     <nav>
       <Link to='/'>

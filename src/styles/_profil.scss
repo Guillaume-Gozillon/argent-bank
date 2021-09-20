@@ -1,0 +1,25 @@
+.transactions-button,
+.edit-button {
+  padding: 1rem;
+  color: white;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-weight: bold;
+  border: none;
+  margin: 1rem 0 0 0;
+  &:hover {
+    cursor: pointer;
+    background-color: #0c8f5f;
+  }
+}
+
+.bank-account {
+  display: flex;
+  flex-direction: column;
+  & .bank-info {
+    display: flex;
+    flex-direction: column;
+  }
+}

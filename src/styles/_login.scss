@@ -17,26 +17,60 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin-top: 4rem;
+    margin-top: 5rem;
     padding: 2rem 2.5rem;
     & svg {
       font-size: 1.2rem;
     }
     & h1 {
-      margin: 1.2rem 0;
+      margin: 1.5rem 0;
     }
   }
 }
 
 #sign-up-form {
-  & label {
-    font-weight: 600;
-  }
   width: 100%;
+  & .label-bold {
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
   & #email,
   #password {
     height: 2.5rem;
     width: 100%;
-    margin: .1rem 0 1rem 0;
+    margin: 0.1rem 0 1rem 0;
   }
+}
+
+#remember-me {
+  margin: 1.1rem 0.3rem 1rem 0;
+}
+
+#check-label {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.sign-button {
+  width: 100%;
+  height: 3.2rem;
+  color: white;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: underline;
+  font-weight: bold;
+  border: none;
+  margin: 1rem 0 0 0;
+  &:hover{
+      cursor: pointer;
+      background-color: #0c8f5f;
+  }
+}
+
+input {
+    padding: .5rem;
+    font-size: 1.5rem;
+    outline-color: #12002b;
 }
