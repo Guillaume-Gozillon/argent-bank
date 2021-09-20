@@ -7,7 +7,7 @@ import { BASE_URL } from '../utils'
 import axios from 'axios'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { loginApi } from '../a - actions/loginAction'
+import { loginApi } from '../Redux/Actions/loginAction'
 import { Redirect } from 'react-router'
 
 const Login = () => {

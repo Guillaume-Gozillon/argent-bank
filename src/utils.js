@@ -6,20 +6,20 @@ export const data = [
     kind: 'Checking',
     nb: 8349,
     available: 2082.79,
-    type: 'Balance'
+    type: 'Available Balance'
   },
   {
     key: 1,
     kind: 'Savings',
     nb: 6712,
     available: 10928.42,
-    type: 'Balance'
+    type: 'Available Balance'
   },
   {
     key: 2,
     kind: 'Credit Card',
     nb: 8349,
     available: 184.3,
-    type: 'Current'
+    type: 'Current Balance'
   }
 ]

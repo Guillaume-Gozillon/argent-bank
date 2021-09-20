@@ -1,11 +1,22 @@
-.transactions-button,
+h1 {
+  font-size: 2rem;
+  color: white;
+  margin-top: 2rem;
+}
+
+.name {
+  font-size: 2rem;
+  color: white;
+  margin-top: 0.1rem;
+}
+
+.button-profil,
 .edit-button {
   padding: 1rem;
   color: white;
   border-color: #00bc77;
   background-color: #00bc77;
   font-size: 1.3rem;
-  font-weight: bold;
   font-weight: bold;
   border: none;
   margin: 1rem 0 0 0;
@@ -15,11 +26,28 @@
   }
 }
 
+.edit-button {
+  margin-bottom: 2rem;
+}
+
 .bank-account {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: #12002b;
+  flex: 1;
+  color: #12002b;
   & .bank-info {
+    background-color: white;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    align-items: center;
+    & .money-available {
+      font-size: 2.9rem;
+      font-weight: 700;
+    }
   }
 }

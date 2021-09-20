@@ -1,13 +1,21 @@
 const Account = ({ detail }) => {
+  const options = {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }
+
   return (
     <div className='bank-info'>
-      <div className='money'>
-        <p className='kind'>{detail.kind}$</p>
-        <p className='money'>{detail.nb}</p>
-        <p className='type'>{detail.available}</p>
+      <div>
+        <p className='kind'>
+          Argent Bank {detail.kind} (x{detail.nb})
+        </p>
+        <p className='money-available'>
+          ${Number(detail.available).toLocaleString('en', options)}
+        </p>
         <p className='type'>{detail.type}</p>
       </div>
-      <button className='transactions-button'>View transactions</button>
+      <button className='button-profil'>View transactions</button>
     </div>
   )
 }

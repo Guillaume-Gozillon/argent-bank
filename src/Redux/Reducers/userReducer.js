@@ -1,4 +1,4 @@
-import { USER_LOGIN } from '../a - actions/userAction'
+import { USER_LOGIN } from "../Actions/loginAction"
 const initialState = { email: null, password: null, token: null }
 
 export default function userReducer(state = initialState, action) {
