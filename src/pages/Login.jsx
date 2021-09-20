@@ -7,7 +7,7 @@ import { BASE_URL } from '../utils'
 import axios from 'axios'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { loginApi } from '../Redux/Actions/loginAction'
+import { connectAPI } from '../Redux/Actions/loginAction'
 import { Redirect } from 'react-router'
 
 const Login = () => {
@@ -30,7 +30,7 @@ const Login = () => {
         .then(res => {
           const token = res.data.body.token
 
-          dispatch(loginApi(email, password, token))
+          dispatch(connectAPI(email, password, token))
           if (res.status === 200) setIsAuth(true)
         })
         .catch(err => console.log('Nouvelle erreur', err))

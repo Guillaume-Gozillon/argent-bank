@@ -1,12 +1,13 @@
-export const USER_LOGIN = 'USER_LOGIN'
-
-export const loginApi = (email, password, token) => dispatch => {
+export const connectAPI = (email, password, token) => dispatch => {
   dispatch({
     type: 'USER_LOGIN',
-    payload: {
-      email: email,
-      password: password,
-      token: token
-    }
+    payload: { email, password, token }
+  })
+}
+
+export const fetchAPI = (firstName, lastName) => dispatch => {
+  dispatch({
+    type: 'USER_PROFIL',
+    payload: { firstName, lastName }
   })
 }
