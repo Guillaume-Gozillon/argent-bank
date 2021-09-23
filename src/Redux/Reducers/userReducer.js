@@ -1,8 +1,9 @@
 import {
-  USER_LOGIN,
-  USER_PROFIL,
+  CONNECT_API,
+  FETCH_PROFIL,
   UPDATE_NAME,
-  UPDATE_BUTTON
+  CLICK_BUTTON,
+  LOGIN_OUT
 } from '../constantes'
 
 const initialState = {
@@ -11,37 +12,51 @@ const initialState = {
   token: null,
   firstName: null,
   lastName: null,
-  //bouton = false
+  isAuth: false,
+  button: false
 }
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
-    case USER_LOGIN: {
+    case CONNECT_API: {
       return {
         ...state,
         email: action.payload.email,
         password: action.payload.password,
-        token: action.payload.token
+        token: action.payload.token,
+        isAuth: action.payload.isAuth
       }
     }
-    case USER_PROFIL: {
+    case FETCH_PROFIL: {
       return {
         ...state,
         firstName: action.payload.firstName,
         lastName: action.payload.lastName
       }
     }
+    case CLICK_BUTTON: {
+      return {
+        ...state,
+        button: action.payload.button
+      }
+    }
     case UPDATE_NAME: {
       return {
         ...state,
-        firstName: action.payload.handlefirstName,
-        lastName: action.payload.handleLastName
+        firstName: action.payload.firstName,
+        lastName: action.payload.lastName
       }
     }
-    case UPDATE_BUTTON: {
+    case LOGIN_OUT: {
       return {
         ...state,
-        showButton: action.payload.showButton
+        isAuth: action.payload.isAuth,
+        email: action.payload.email,
+        password: action.payload.password,
+        token: action.payload.token,
+        firstName: action.payload.firstName,
+        lastName: action.payload.lastName,
+        button: action.payload.button
       }
     }
     default:

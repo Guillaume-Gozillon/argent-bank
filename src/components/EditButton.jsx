@@ -1,47 +1,25 @@
-import { updateName, updateButton } from '../Redux/Actions/loginAction'
-import { BASE_URL } from '../utils'
+import { clickButton } from '../Redux/Actions/editButton'
+import { editName } from '../Redux/Actions/editName'
 
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import axios from 'axios'
 
-const EditButton = ({ firstNameUpdate, lastNameUpdate }) => {
-  const token = useSelector(state => state.token)
-  const button = useSelector(state => state.showButton)
+const EditButton = () => {
   const dispatch = useDispatch()
+  const firstNameToUpdate = useSelector(state => state.firstName)
+  const lastNameToUpdate = useSelector(state => state.lastName)
+  const [firstName, setUpdateFirstName] = useState(null)
+  const [lastName, setUpdateLastName] = useState(null)
 
-  const [handlefirstName, setHandlefirstName] = useState(null)
-  const [handleLastName, setHandleLastName] = useState(null)
-  const [cancelButton, setCancelButton] = useState(false)
+  const handleFirstName = e => setUpdateFirstName(e.target.value)
+  const lastNameEvent = e => setUpdateLastName(e.target.value)
 
-  const data = { firstName: handlefirstName, lastName: handleLastName }
-  //const [newFirstName, setNewFirstName] = useState(null)
-  //const [newLastNameName, setNewLastNameName] = useState(null)
-
-  const firstNameEvent = e => setHandlefirstName(e.target.value)
-  const lastNameEvent = e => setHandleLastName(e.target.value)
-
-  const showEditButton = () => setCancelButton(!button)
-
-  useEffect(() => {
-    dispatch(updateButton(cancelButton))
-  }, [cancelButton])
+  const cancelButton = () => dispatch(clickButton(false))
 
   const submitEdit = e => {
     e.preventDefault()
-
-    axios
-      .put(`${BASE_URL}/profile`, data, {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      .catch(err => console.log(err))
-    //.then(res => {
-    //  setNewFirstName(res.data.body.firstName)
-    //  setNewLastNameName(res)
-    //})
-
-    dispatch(updateName(handlefirstName, handleLastName))
+    dispatch(editName(firstName, lastName))
+    dispatch(clickButton(false))
   }
 
   return (
@@ -52,8 +30,8 @@ const EditButton = ({ firstNameUpdate, lastNameUpdate }) => {
           name='firstname'
           id='firstname'
           className='edit-input-handler'
-          onChange={firstNameEvent}
-          placeholder={firstNameUpdate}
+          onChange={handleFirstName}
+          placeholder={firstNameToUpdate}
         />
         <input
           type='text'
@@ -61,19 +39,22 @@ const EditButton = ({ firstNameUpdate, lastNameUpdate }) => {
           id='lastname'
           className='edit-input-handler'
           onChange={lastNameEvent}
-          placeholder={lastNameUpdate}
+          placeholder={lastNameToUpdate}
         />
       </div>
-      {button === true && (
-        <div className='edit-button-container'>
-          <button className='edit-button-change' onClick={submitEdit}>
-            Save
-          </button>
-          <button className='edit-button-change' onClick={showEditButton}>
-            Cancel
-          </button>
-        </div>
-      )}
+      <div className='edit-button-container'>
+        <button
+          className='edit-button-change'
+          type='submit'
+          value='Submit'
+          onClick={submitEdit}
+        >
+          Save
+        </button>
+        <button className='edit-button-change' onClick={cancelButton}>
+          Cancel
+        </button>
+      </div>
     </form>
   )
 }

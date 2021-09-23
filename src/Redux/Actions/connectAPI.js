@@ -1,19 +1,20 @@
-export const USER_LOGIN = 'USER_LOGIN'
 import { BASE_URL } from '../../utils'
 import axios from 'axios'
 
-export const connectAPP = data => dispatch => {
+export const connectAPI = (email, password, isAuth) => dispatch => {
+  isAuth = true
+
   axios
-    .post(`${BASE_URL}/profile`, data)
+    .post(`${BASE_URL}/login`, { email, password })
     .then(res => {
-      console.log('TEST', res)
-      if (res.status === 200) setIsAuth(true)
+      localStorage.setItem('token', res.data.body.token)
       dispatch({
-        type: 'USER_LOGIN',
+        type: 'CONNECT_API',
         payload: {
-          email: res.data.body.firstName,
-          password: res.data.body.lastName,
-          token
+          email,
+          password,
+          token: res.data.body.token,
+          isAuth
         }
       })
     })

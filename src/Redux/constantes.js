@@ -1,4 +1,6 @@
+export const CONNECT_API = 'CONNECT_API'
+export const FETCH_PROFIL = 'FETCH_PROFIL'
 export const USER_LOGIN = 'USER_LOGIN'
-export const USER_PROFIL = 'USER_PROFIL'
+export const CLICK_BUTTON = 'CLICK_BUTTON'
 export const UPDATE_NAME = 'UPDATE_NAME'
-export const UPDATE_BUTTON = 'UPDATE_BUTTON'
+export const LOGIN_OUT = 'LOGIN_OUT'
