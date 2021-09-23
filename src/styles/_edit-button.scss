@@ -1,0 +1,32 @@
+.edit-form {
+  margin: 1rem;
+}
+
+.edit-button-container {
+  display: flex;
+  justify-content: center;
+  & .edit-button-change {
+    padding: 1rem;
+    color: white;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    margin: 0 1rem;
+    &:hover {
+      cursor: pointer;
+      background-color: #0c8f5f;
+    }
+  }
+}
+
+.edit-input {
+  & .edit-input-handler {
+    border-radius: 0.3rem;
+    margin: 0 1rem;
+    &:hover {
+      outline-color: #00bc77;
+    }
+  }
+}

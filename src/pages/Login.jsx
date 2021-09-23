@@ -8,6 +8,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { connectAPI } from '../Redux/Actions/loginAction'
+import { connectAPP } from '../Redux/Actions/connectAPI'
 import { Redirect } from 'react-router'
 
 const Login = () => {
@@ -20,14 +21,19 @@ const Login = () => {
   const handlePassword = e => setPassword(e.target.value)
 
   const data = { email, password, token: '' }
-
+  const dataTest = { email, password }
+  
+  
   const submitLogin = async e => {
     e.preventDefault()
+    dispatch(connectAPP(data))
 
+ //   console.log(data);
     if (email !== '') {
       axios
-        .post(`${BASE_URL}/login`, data)
+        .post(`${BASE_URL}/login`, dataTest)
         .then(res => {
+          console.log(res);
           const token = res.data.body.token
 
           dispatch(connectAPI(email, password, token))
@@ -56,7 +62,6 @@ const Login = () => {
               name='email'
               id='email'
               onChange={handleEmail}
-              value={email}
             />
             <br />
             <label htmlFor='password' className='label-bold'>
@@ -68,7 +73,6 @@ const Login = () => {
               name='password'
               id='password'
               onChange={handlePassword}
-              value={password}
             />
             <br />
             <input type='checkbox' id='remember-me' />

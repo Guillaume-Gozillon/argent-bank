@@ -1,11 +1,17 @@
-import { USER_LOGIN, USER_PROFIL } from '../constantes'
+import {
+  USER_LOGIN,
+  USER_PROFIL,
+  UPDATE_NAME,
+  UPDATE_BUTTON
+} from '../constantes'
 
 const initialState = {
   email: null,
   password: null,
   token: null,
   firstName: null,
-  lastName: null
+  lastName: null,
+  //bouton = false
 }
 
 export default function userReducer(state = initialState, action) {
@@ -23,6 +29,19 @@ export default function userReducer(state = initialState, action) {
         ...state,
         firstName: action.payload.firstName,
         lastName: action.payload.lastName
+      }
+    }
+    case UPDATE_NAME: {
+      return {
+        ...state,
+        firstName: action.payload.handlefirstName,
+        lastName: action.payload.handleLastName
+      }
+    }
+    case UPDATE_BUTTON: {
+      return {
+        ...state,
+        showButton: action.payload.showButton
       }
     }
     default:

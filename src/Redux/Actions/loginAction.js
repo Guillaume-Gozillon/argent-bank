@@ -11,3 +11,20 @@ export const fetchAPI = (firstName, lastName) => dispatch => {
     payload: { firstName, lastName }
   })
 }
+
+export const updateName = (handlefirstName, handleLastName) => dispatch => {
+  dispatch({
+    type: 'UPDATE_NAME',
+    payload: {
+      handlefirstName: handlefirstName,
+      handleLastName: handleLastName
+    }
+  })
+}
+
+export const updateButton = showButton => dispatch => {
+  dispatch({
+    type: 'UPDATE_BUTTON',
+    payload: { showButton: !showButton }
+  })
+}
