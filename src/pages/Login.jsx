@@ -66,17 +66,3 @@ const Login = () => {
 }
 
 export default Login
-
-//console.log('datatest', dataTest)
-//if (email !== '') {
-//  axios
-//    .post(`${BASE_URL}/login`, data)
-//    .then(res => {
-//      console.log(res)
-//      const token = res.data.body.token
-//
-//      //dispatch(connectAPI(email, password, token))
-//      if (res.status === 200) setIsAuth(true)
-//    })
-//    .catch(err => console.log('Nouvelle erreur', err))
-//}

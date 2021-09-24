@@ -6,8 +6,11 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const EditButton = () => {
   const dispatch = useDispatch()
-  const firstNameToUpdate = useSelector(state => state.firstName)
-  const lastNameToUpdate = useSelector(state => state.lastName)
+  const [firstNameToUpdate, lastNameToUpdate] = useSelector(state => [
+    state.firstName,
+    state.lastName
+  ])
+
   const [firstName, setUpdateFirstName] = useState(null)
   const [lastName, setUpdateLastName] = useState(null)
 

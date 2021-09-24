@@ -14,15 +14,20 @@ const Profil = () => {
   const dispatch = useDispatch()
   dispatch(fetchDataAPI())
 
-  const firstName = useSelector(state => state.firstName)
-  const lastName = useSelector(state => state.lastName)
-  const isAuth = useSelector(state => state.isAuth)
-  const token = useSelector(state => state.token)
-  const button = useSelector(state => state.button)
+  const [firstName, lastName, isAuth, token, button] = useSelector(state => [
+    state.firstName,
+    state.lastName,
+    state.isAuth,
+    state.token,
+    state.button
+  ])
 
   const showButton = () => dispatch(clickButton(true))
 
-  if (!isAuth) return <Redirect to='/login' />
+  if (!isAuth || token === null) {
+    dispatch(loginOut(false))
+    return <Redirect to='/login' />
+  }
 
   return (
     <>
