@@ -24,9 +24,9 @@ const Profil = () => {
 
   const showButton = () => dispatch(clickButton(true))
 
-  if (!isAuth || token === null) {
+  if (!isAuth) {
     dispatch(loginOut(false))
-    return <Redirect to='/login' />
+    return <Redirect to='/' />
   }
 
   return (
@@ -44,7 +44,6 @@ const Profil = () => {
         ) : (
           <EditButton />
         )}
-
         {data.map(detail => (
           <Account detail={detail} key={detail.key} />
         ))}

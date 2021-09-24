@@ -20,10 +20,11 @@
     margin-top: 5rem;
     padding: 2rem 2.5rem;
     & svg {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
     }
     & h1 {
       margin: 1.5rem 0;
+      color: rgba(0, 0, 0, 0.76);
     }
   }
 }
@@ -63,14 +64,17 @@
   font-weight: bold;
   border: none;
   margin: 1rem 0 0 0;
-  &:hover{
-      cursor: pointer;
-      background-color: #0c8f5f;
+  border-radius: 0.4rem;
+  transition: background-color 0.1s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background-color: #0c8f5f;
   }
 }
 
 input {
-    padding: .5rem;
-    font-size: 1.5rem;
-    outline-color: #12002b;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  outline-color: #12002b;
+  border-radius: 0.4rem;
 }

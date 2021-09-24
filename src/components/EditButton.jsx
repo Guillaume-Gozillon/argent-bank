@@ -17,7 +17,10 @@ const EditButton = () => {
   const handleFirstName = e => setUpdateFirstName(e.target.value)
   const lastNameEvent = e => setUpdateLastName(e.target.value)
 
-  const cancelButton = () => dispatch(clickButton(false))
+  const cancelButton = e => {
+    e.preventDefault()
+    dispatch(clickButton(false))
+  }
 
   const submitEdit = e => {
     e.preventDefault()

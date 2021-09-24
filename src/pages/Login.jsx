@@ -3,6 +3,8 @@ import Footer from '../components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
+import { validEmail } from '../utils'
+
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { connectAPI } from '../Redux/Actions/connectAPI'
@@ -22,7 +24,9 @@ const Login = () => {
     dispatch(connectAPI(email, password, isAuth))
   }
 
-  if (isAuth) return <Redirect to='/profil' />
+  if (isAuth && validEmail(email) === true && password !== null) {
+    return <Redirect to='/profil' />
+  }
 
   return (
     <>

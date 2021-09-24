@@ -8,6 +8,9 @@ nav {
     justify-content: space-between;
     align-items: center;
     font-size: 1.25rem;
+    & .logout {
+      margin-left: 1.5rem;
+    }
   }
   & .logimg {
     margin-right: 1.3rem;
@@ -16,7 +19,7 @@ nav {
   & img {
     width: 200px;
   }
-  & a {
+  & a, p {
     color: rgba(0, 0, 0, 0.658);
     text-decoration: none;
     font-weight: 600;
