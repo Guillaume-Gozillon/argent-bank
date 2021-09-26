@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 import { validEmail } from '../utils'
-
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { connectAPI } from '../Redux/Actions/connectAPI'

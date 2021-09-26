@@ -15,7 +15,7 @@ const EditButton = () => {
   const [lastName, setUpdateLastName] = useState(null)
 
   const handleFirstName = e => setUpdateFirstName(e.target.value)
-  const lastNameEvent = e => setUpdateLastName(e.target.value)
+  const handleLastName = e => setUpdateLastName(e.target.value)
 
   const cancelButton = e => {
     e.preventDefault()
@@ -44,7 +44,7 @@ const EditButton = () => {
           name='lastname'
           id='lastname'
           className='edit-input-handler'
-          onChange={lastNameEvent}
+          onChange={handleLastName}
           placeholder={lastNameToUpdate}
         />
       </div>
