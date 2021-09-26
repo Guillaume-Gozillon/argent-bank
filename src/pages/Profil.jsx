@@ -14,11 +14,10 @@ const Profil = () => {
   const dispatch = useDispatch()
   dispatch(fetchDataAPI())
 
-  const [firstName, lastName, isAuth, token, button] = useSelector(state => [
+  const [firstName, lastName, isAuth, button] = useSelector(state => [
     state.firstName,
     state.lastName,
     state.isAuth,
-    state.token,
     state.button
   ])
 

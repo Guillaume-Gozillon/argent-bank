@@ -53,3 +53,9 @@ h1 {
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .bank-info {
+    flex-direction: column;
+  }
+}
